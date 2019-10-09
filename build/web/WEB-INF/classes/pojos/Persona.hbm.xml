@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--Definición de hibernate, generada automáticamente desde aquí-->
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN" "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<!--hasta aquí
+Define las clases que mapearemos con hibernate -->
+<hibernate-mapping>
+    <!--//clase a mapear y tabla a la que pertenece en nuestra base de datos-->
+<class  name="pojos.Persona" table="personas">
+    <!--Declaración de propiedades (campos de nuestra tabla)-->
+    <!--PRIMARY KEY de nuestra tabla-->
+        <id name="clave" column="clave">
+        </id>
+        <property name="nombre"/>
+        <property name="direccion" />
+</class>
+</hibernate-mapping>
