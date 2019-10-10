@@ -1,4 +1,6 @@
 import configuration.SessionManager;
+import java.util.Iterator;
+import org.hibernate.Query;
 import org.hibernate.Session;
 import org.hibernate.Transaction;
 import pojos.Persona;
@@ -17,8 +19,15 @@ public class MyMain extends javax.swing.JFrame {
     public MyMain() {
         initComponents();
         txtClave.setText("");
-        txtNombre.setText("");
+        txtNombre.setText(""); 
         txtDireccion.setText("");
+        
+        Query q=session.createQuery("From Personas");
+        for (Iterator iterator = q.iterate(); iterator.hasNext();) {
+            Object next = iterator.next();
+            
+        }
+        
     }
     
 
@@ -128,7 +137,7 @@ public class MyMain extends javax.swing.JFrame {
          p.setDireccion(txtDireccion.getText());
          session.save(p);
          tx.commit();
-         
+         cleanScreen();
     }//GEN-LAST:event_btnInsertActionPerformed
 
     private void btnUpdateActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnUpdateActionPerformed
@@ -137,6 +146,7 @@ public class MyMain extends javax.swing.JFrame {
          p.setDireccion(txtDireccion.getText());
          session.update(p);
          tx.commit();
+         cleanScreen();
     }//GEN-LAST:event_btnUpdateActionPerformed
 
     private void btnDeleteActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnDeleteActionPerformed
@@ -145,9 +155,14 @@ public class MyMain extends javax.swing.JFrame {
          p.setDireccion(txtDireccion.getText());
          session.delete(p);
          tx.commit();
+         cleanScreen();
          
     }//GEN-LAST:event_btnDeleteActionPerformed
-
+    private void cleanScreen(){
+        txtClave.setText("");
+        txtNombre.setText("");
+        txtDireccion.setText("");
+    }
     /**
      * @param args the command line arguments
      */
