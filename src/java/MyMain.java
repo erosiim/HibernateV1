@@ -192,10 +192,10 @@ public class MyMain extends javax.swing.JFrame {
     }//GEN-LAST:event_btnDeleteActionPerformed
 
     private void btnReadActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnReadActionPerformed
-        Query q=session.createQuery("FROM personas");
-        for (Iterator iterator = q.iterate(); iterator.hasNext();) {
-            Object next = iterator.next(); 
-            modelo.addRow(new Object[]{next.
+        Query q=session.createQuery("FROM Persona");
+        for (Iterator<Persona> iterator = q.iterate(); iterator.hasNext();) {
+            Persona next = iterator.next(); 
+            modelo.addRow(new Object[]{next.getClave(), next.getNombre() , next.getDireccion()});
         }
     }//GEN-LAST:event_btnReadActionPerformed
     private void cleanScreen(){
