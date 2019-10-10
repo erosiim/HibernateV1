@@ -192,6 +192,7 @@ public class MyMain extends javax.swing.JFrame {
     }//GEN-LAST:event_btnDeleteActionPerformed
 
     private void btnReadActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnReadActionPerformed
+        modelo.setNumRows(0);
         Query q=session.createQuery("FROM Persona");
         for (Iterator<Persona> iterator = q.iterate(); iterator.hasNext();) {
             Persona next = iterator.next(); 
